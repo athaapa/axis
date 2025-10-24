@@ -3,7 +3,7 @@
 	<img width="128" height="128" src="https://raw.githubusercontent.com/athaapa/axis/refs/heads/main/images/axis.png?token=GHSAT0AAAAAADLSC4VOULRFMDVMKKNYXLNA2H2ZIDQ" alt="Logo">
   </p>
 
-  <h1 align="center"><b>axis</b></h1>
+  <h1 align="center"><b>Axis</b></h1>
   <p align="center">
      3D graphing calculator with AI-powered problem solving.
     <br />
