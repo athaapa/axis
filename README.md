@@ -1,6 +1,6 @@
 <p align="center">
   <p align="center">
-	<img width="128" height="128" src="https://raw.githubusercontent.com/athaapa/axis/refs/heads/main/images/axis.png?token=GHSAT0AAAAAADLSC4VOULRFMDVMKKNYXLNA2H2ZIDQ" alt="Logo">
+	<img width="128" height="128" src="https://github.com/athaapa/axis/blob/6b74df22d1ce3f398cec4de458c2f6bfd7aa7b0a/images/axis.png" alt="Logo">
   </p>
 
   <h1 align="center"><b>Axis</b></h1>
