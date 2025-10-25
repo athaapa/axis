@@ -11,7 +11,7 @@
   </p>
 </p>
 
-**Axis** is a 3D graphing calculator designed (mainly) for multivariable calculus. Axis has a unique AI problem solver bot that where you can paste in a problem (usually with geometric implications), and it can solve the problem and draw accompanying diagrams. 
+**Axis** is a 3D graphing calculator made for multivariable calculus.
 
 ## Core Features
 - [x] Graph a curve based on a set of points
