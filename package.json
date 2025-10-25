@@ -12,6 +12,8 @@
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.4.0",
     "latex-math": "^0.0.2",
+    "lucide-react": "^0.547.0",
+    "mathjs": "^15.0.0",
     "mathquill": "^0.10.1-a",
     "next": "16.0.0",
     "react": "19.2.0",

@@ -20,7 +20,11 @@ export default function GraphCurve({ points }: GraphCurveProps) {
 
   return (
     <mesh geometry={tubeGeometry}>
-      <meshStandardMaterial color="red" />
+      <meshStandardMaterial
+        color="#ff4444"
+        emissive="#ff2222"
+        emissiveIntensity={0.3}
+      />
     </mesh>
   );
 }

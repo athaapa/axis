@@ -1,32 +1,19 @@
-/* Custom styles for MathQuill cursor visibility */
-.mq-editable-field .mq-cursor {
-  border-left: 1px solid #fff !important;
-  margin-left: -1px !important;
-  animation: blink 1s infinite !important;
-}
+@import "tailwindcss";
 
-.mq-editable-field .mq-cursor.mq-blink {
-  opacity: 1 !important;
-}
-
-@keyframes blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  51%,
-  100% {
-    opacity: 0;
-  }
-}
-
-/* Ensure MathQuill field is properly styled */
+/* Remove MathQuill focus and hover outlines */
 .mq-editable-field {
-  caret-color: #fff !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.mq-editable-field:hover {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .mq-editable-field:focus {
   outline: none !important;
+  box-shadow: none !important;
 }
 
 .mq-editable-field.mq-focused {
@@ -34,11 +21,17 @@
   box-shadow: none !important;
 }
 
-/* Remove blue outline from textarea */
-.mq-textarea {
+.mq-textarea:focus {
   outline: none !important;
 }
 
-.mq-textarea:focus {
-  outline: none !important;
+/* Make MathQuill cursor white */
+.mq-cursor {
+  border-left-color: #fff !important;
+  color: #fff !important;
+}
+
+.mq-editable-field .mq-cursor {
+  border-left-color: #fff !important;
+  color: #fff !important;
 }
