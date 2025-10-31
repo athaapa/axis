@@ -1,8 +1,8 @@
 "use client";
 
 import { Stats } from "@react-three/drei";
-import CanvasScene from "./components/canvas-scene";
-import EquationPanel from "./ui/equation-panel";
+import CanvasScene from "../three/components/canvas-scene";
+import EquationPanel from "../components/ui/equation-panel";
 import { useState } from "react";
 
 interface Equation {
@@ -23,11 +23,9 @@ export default function Page() {
   ]);
 
   return (
-    <div className="w-screen h-screen bg-zinc-950 relative overflow-hidden">
-      {/* 3D Graph Canvas */}
+    <div className="w-screen h-screen relative bg-zinc-950 overflow-hidden">
       <CanvasScene />
 
-      {/* Floating Equation Panel */}
       <EquationPanel equations={equations} />
     </div>
   );
