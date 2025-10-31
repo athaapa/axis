@@ -1,6 +1,6 @@
 import "mathquill/build/mathquill.css";
 import "./globals.css";
-import { inter } from "./ui/fonts";
+import { inter } from "../components/ui/fonts";
 
 export default function RootLayout({
   children,
