@@ -1,5 +1,6 @@
 import {
     connectSegments,
+    isValidLatexFunction,
     marchSquares,
     parseLatex,
     smoothChain,
@@ -15,6 +16,10 @@ export default function Curve({
     color: string;
 }) {
     const { chains, evalFunc } = useMemo(() => {
+        console.log(expr);
+        if (!isValidLatexFunction(expr)) {
+            return { chains: [], evalFunc: null };
+        }
         const node = parseLatex(expr);
         const code = node.compile();
         const lineSegments = marchSquares(

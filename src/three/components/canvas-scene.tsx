@@ -22,7 +22,14 @@ const COLORS = [
     "#CCCCFF", // Pastel Periwinkle
 ];
 
-export default function CanvasScene() {
+interface Equation {
+    id: string;
+    equation: string;
+    color: string;
+    visible: boolean;
+}
+
+export default function CanvasScene({ equations }: { equations: Equation[] }) {
     const expr = "(x^{2}+y^{2}-2x)^{2}=4(x^{2}+y^{2})";
     const expr2 = "y^{2}(y^{2}-4)=x^{2}(x^{2}-5)";
     const expr3 = "x^4=x^2+y^2";
@@ -46,8 +53,13 @@ export default function CanvasScene() {
                 <ambientLight />
                 <WorldGrid />
 
-                {/**<Curve expr={expr2} color={COLORS[randInt(0, COLORS.length)]} /> */}
-                <Curve expr={expr2} color={COLORS[randInt(0, COLORS.length)]} />
+                {equations.map((equation, i) => (
+                    <Curve
+                        key={i}
+                        expr={equation.equation}
+                        color={equation.color}
+                    />
+                ))}
 
                 <OrbitControls />
                 <axesHelper args={[5]} />
