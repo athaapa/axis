@@ -13,13 +13,3 @@
 
 **Axis** is a 3D graphing calculator made for multivariable calculus. It lets you visualize surfaces, vectors, and equations in 3D.
 
-## Core Features
-- [x] Graph a curve based on a set of points
-- [x] Input equations that are parsed into LaTeX
-- [x] Delete equations
-- [ ] Parse LaTeX equations into AST
-- [ ] Parse LaTeX AST into curve
-- [ ] Allow AI to graph equations
-
-## Extras
-- [ ] Change the color of curves
