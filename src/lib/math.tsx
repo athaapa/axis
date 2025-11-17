@@ -9,6 +9,66 @@ import { useMemo } from "react";
 import { parseTex } from "tex-math-parser";
 import { Vector3 } from "three";
 import * as THREE from "three";
+import { renderToString, ParseError } from "katex";
+
+/**
+ *
+ * Allowed inputs:
+ *  Operators: +, -, *, /, ^
+ *  Functions: sin, cos, tan, ln, sqrt
+ *  Variables: x, y
+ */
+
+/**
+ * Returns whether or not a LaTeX expression is a valid mathematical equation
+ * @param expr LaTeX expression to check
+ * @returns true if expr is valid or false if it is not
+ */
+export function isValidLatexFunction(expr: string) {
+    if (typeof expr !== "string") return false;
+
+    // Must be in the form: <latex expr> = <latex expr>
+    const parts = expr.split("=").map((p) => p.trim());
+    if (parts.length !== 2) return false;
+
+    try {
+        // Ensure both sides parse without throwing
+        const left = parseTex(parts[0]);
+        const right = parseTex(parts[1]);
+
+        // Basic traversal to ensure nodes are valid math.js nodes
+        // (parseTex will throw on invalid input, but traverse adds an extra safety check)
+        // Allowed symbols include variables and common math functions
+        const allowedVars = new Set(["x", "y"]);
+        const allowedFunctions = new Set(["sin", "cos", "tan", "ln", "sqrt"]);
+        const allowedSymbols = new Set([...allowedVars, ...allowedFunctions]);
+
+        left.traverse((node: any) => {
+            if (node && node.type === "SymbolNode") {
+                // Allow either variables (x,y) or recognized function names
+                if (!allowedSymbols.has(node.name)) {
+                    throw new Error(
+                        `Invalid variable or function: ${node.name}`
+                    );
+                }
+            }
+        });
+
+        right.traverse((node: any) => {
+            if (node && node.type === "SymbolNode") {
+                if (!allowedSymbols.has(node.name)) {
+                    throw new Error(
+                        `Invalid variable or function: ${node.name}`
+                    );
+                }
+            }
+        });
+
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
 
 /**
  * Parses a LaTeX expression into a math.js expression tree
